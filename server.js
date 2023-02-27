@@ -10,5 +10,4 @@ app.use("/restaurants", restaurantRouter)
 app.listen(port, async function() {
     await sequelize.sync()
     console.log(`Your server is listening on port: http://localhost:${port}/restaurants`);
-
 })
