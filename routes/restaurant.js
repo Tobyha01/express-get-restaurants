@@ -8,7 +8,7 @@ const {sequelize} = require("../db");
 //TODO: Create your GET Request Route Below: 
 router.use(express.json())
 
-router.post("/", [check("name").trim().not().isEmpty(), check("location").trim().not().isEmpty(), check("cuisine").trim().not().isEmpty()], async function(request, response) {
+router.post("/", [check("name").trim().not().isEmpty(), check("name").isLength({min: 10, max:30}).withMessage("Character Length must be a min length of 10, and a max of 30"), check("location").trim().not().isEmpty(), check("cuisine").trim().not().isEmpty()], async function(request, response) {
     try{
         const errors = validationResult(request)
         if(!errors.isEmpty()){
